@@ -32,6 +32,7 @@ MultiplexResolver
 MzMLSplitter
 OpenMSInfo
 PeakPickerIterative
+PSMFeatureExtractor
 QCCalculator
 QCEmbedder
 QCExporter
@@ -51,7 +52,6 @@ SpectraSTSearchAdapter
 SvmTheoreticalSpectrumGeneratorTrainer
 TICCalculator
 TransformationEvaluation
-TopPerc
 XMLValidator
 )
 
