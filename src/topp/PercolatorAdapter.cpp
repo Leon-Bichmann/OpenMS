@@ -279,12 +279,12 @@ protected:
     {
       // if scan number is not available, use the scan index
       Size idx = 0;
-      if ((idx = it->hasPrefix("scan=")) != string::npos)
+      if ((idx = it->find("scan=")) != string::npos)
       {
         scan_number = it->substr(idx + 5).toInt();
         break;
       }
-      else if ((idx = it->hasPrefix("index=")) != string::npos)
+      else if ((idx = it->find("index=")) != string::npos)
       {
         scan_number = it->substr(idx + 6).toInt();
       }
@@ -371,6 +371,7 @@ protected:
   //id <tab> label <tab> scannr <tab> calcmass <tab> expmass <tab> feature1 <tab> ... <tab> featureN <tab> peptide <tab> proteinId1 <tab> .. <tab> proteinIdM
   void preparePin_(vector<PeptideIdentification>& peptide_ids, StringList& feature_set, std::string& enz, TextFile& txt, int min_charge, int max_charge)
   {
+    std::cout << "number of features = " << feature_set.size() << "\n";
     for (vector<PeptideIdentification>::iterator it = peptide_ids.begin(); it != peptide_ids.end(); ++it)
     {
       String scan_identifier = getScanIdentifier_(it, peptide_ids.begin());
@@ -774,7 +775,7 @@ protected:
     String pout_target_file_proteins(temp_directory_body + txt_designator + "_target_pout_proteins.tab");
     String pout_decoy_file_proteins(temp_directory_body + txt_designator + "_decoy_pout_proteins.tab");
     
-    LOG_DEBUG << "Writing percolator input file." << endl;
+    LOG_DEBUG << "Writing percolator input file." << pin_file << endl;
     TextFile txt;  
     txt.addLine(ListUtils::concatenate(feature_set, '\t'));
     preparePin_(all_peptide_ids, feature_set, enz_str, txt, min_charge, max_charge);
