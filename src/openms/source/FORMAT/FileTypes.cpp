@@ -131,7 +131,7 @@ namespace OpenMS
     targetMap[FileTypes::MRM] = "mrm";
     targetMap[FileTypes::PSMS] = "psms";
     targetMap[FileTypes::PARAMXML] = "paramXML";
-
+    targetMap[FileTypes::PIN] = "pin";
     return targetMap;
   }
 
