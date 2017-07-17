@@ -147,11 +147,10 @@ protected:
       return ILLEGAL_PARAMETERS;
     }
     
-    const String mzid_out(getStringOption_("mzid_out"));
     const String out(getStringOption_("out"));
-    if (mzid_out.empty() && out.empty())
+    if out.empty()
     {
-      writeLog_("Fatal error: no output file given (parameter 'out' or 'mzid_out')");
+      writeLog_("Fatal error: no output file given (parameter 'out')");
       printUsage_();
       return ILLEGAL_PARAMETERS;
     }
